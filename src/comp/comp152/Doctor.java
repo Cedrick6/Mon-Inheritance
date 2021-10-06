@@ -9,8 +9,9 @@ public class Doctor {
         this.fee = fee;
     }
 
+
     public void treatPatient(Person patient){
-        System.out.println(" Place holder for treat patient");
+        System.out.println(" The Doctor says take two of these and call the office in the morning");
         patient.getTreated();
     }
 
@@ -24,4 +25,19 @@ public class Doctor {
             return fee/2;
         return fee;
     }
+
+    public String toString(){
+        return "Doctor: \nMed School:" + AlmaMater+ "\n Fee:" + fee;
+    }
+
+    @Override
+    public boolean equals(Object other){
+        if (!(other instanceof Doctor)){
+            return false;
+        }
+        Doctor otherDoctor = (Doctor) other;
+        var isSame = this.fee == otherDoctor.fee && this.AlmaMater.equals(otherDoctor.AlmaMater);
+        return isSame;
+    }
+
 }
